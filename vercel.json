@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "name": "calicx_.--backend",
+  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+  "routes": [{ "source  ": "/(.*)", "destination": "/app.js" }]
+}
