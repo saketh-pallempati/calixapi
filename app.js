@@ -87,7 +87,7 @@ async function sortedOrder(sem) {
   const query = `{"gpa.${sem}" : -1}`;
   return students
     .find()
-    .project({ _id: 0, RegNo: 1, Name: 1, Branch: 1, gpa: 1, rank: 1 })
+    .project({ _id: 0, RegNo: 1, Name: 1, Branch: 1, gpa: 1, rank: 1, SNo: 1 })
     .sort(JSON.parse(query))
     .limit(10)
     .toArray();
