@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const request = require("request");
+const initialData = require("./ServerStaticData/initialFetch.json")
+const sem = require("./ServerStaticData/sem.json")
 app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
@@ -40,14 +42,14 @@ app.get("/api/getViews/:test_id", async (req, res) => {
 });
 
 app.get("/initialData", async (req, res) => {
-  let output = await initialFetch().catch(console.dir);
-  res.json(output);
+  // let output = await initialFetch().catch(console.dir);
+  res.json(initialData);
 });
 
 app.get("/sort", async (req, res) => {
-  let sem = req.query.sem;
-  let output = await sortedOrder(sem).catch(console.dir);
-  res.json(output);
+  let semno = req.query.sem;
+  // let output = await sortedOrder(sem).catch(console.dir);
+  res.json(sem[semno]);
 });
 
 app.get("/:id", async (req, res) => {
@@ -66,38 +68,39 @@ async function run(sno) {
   return await students.findOne(filter);
 }
 
-async function sortedOrder(sem) {
-  if (sem == 0) {
-    return students
-      .find()
-      .project({
-        _id: 0,
-        RegNo: 1,
-        Name: 1,
-        Branch: 1,
-        gpa: 1,
-        rank: 1,
-        SNo: 1,
-      })
-      .sort({ rank: 1 })
-      .limit(10)
-      .toArray();
-  }
+// async function sortedOrder(sem) {
+//   if (sem == 0) {
+//     return students
+//       .find()
+//       .project({
+//         _id: 0,
+//         RegNo: 1,
+//         Name: 1,
+//         Branch: 1,
+//         gpa: 1,
+//         rank: 1,
+//         SNo: 1,
+//       })
+//       .sort({ rank: 1 })
+//       .limit(10)
+//       .toArray();
+//   }
 
-  const query = `{"gpa.${sem}" : -1}`;
-  return students
-    .find()
-    .project({ _id: 0, RegNo: 1, Name: 1, Branch: 1, gpa: 1, rank: 1, SNo: 1 })
-    .sort(JSON.parse(query))
-    .limit(10)
-    .toArray();
-}
-async function initialFetch() {
-  return await students
-    .find()
-    .project({ _id: 0, RegNo: 1, Name: 1, SNo: 1 })
-    .toArray();
-}
+
+//   const query = `{"gpa.${sem}" : -1}`;
+//   return students
+//     .find()
+//     .project({ _id: 0, RegNo: 1, Name: 1, Branch: 1, gpa: 1, rank: 1, SNo: 1 })
+//     .sort(JSON.parse(query))
+//     .limit(10)
+//     .toArray();
+// }
+// async function initialFetch() {
+//   return await students
+//     .find()
+//     .project({ _id: 0, RegNo: 1, Name: 1, SNo: 1 })
+//     .toArray();
+// }
 app.listen(process.env.PORT, () =>
   console.log("Server started at " + process.env.PORT)
 );

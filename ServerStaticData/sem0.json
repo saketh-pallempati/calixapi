@@ -1,0 +1,83 @@
+[
+    {
+      "SNo": 181,
+      "RegNo": 125003001,
+      "Name": "Aadhappan Vishnu S",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.6484 },
+      "rank": 1
+    },
+    {
+      "SNo": 48,
+      "RegNo": 125003410,
+      "Name": "Yaswanth Reddy Dirisala",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.6264 },
+      "rank": 2
+    },
+    {
+      "SNo": 314,
+      "RegNo": 125156038,
+      "Name": "Reddy Harikishan Reddy Thopi",
+      "Branch": "B.Tech. Computer Science & Engineering (Artificial Intelligence & Data Science)",
+      "gpa": { "cgpa": 9.6264 },
+      "rank": 2
+    },
+    {
+      "SNo": 418,
+      "RegNo": 125156166,
+      "Name": "V Tarun Thothadri",
+      "Branch": "B.Tech. Computer Science & Engineering (Artificial Intelligence & Data Science)",
+      "gpa": { "cgpa": 9.6044 },
+      "rank": 4
+    },
+    {
+      "SNo": 221,
+      "RegNo": 125003306,
+      "Name": "Shanmukha Kartheek Kota",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.5714 },
+      "rank": 5
+    },
+    {
+      "SNo": 291,
+      "RegNo": 125003449,
+      "Name": "Lanka Varsha",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.5385 },
+      "rank": 6
+    },
+    {
+      "SNo": 49,
+      "RegNo": 125003411,
+      "Name": "Yeturu Vidya",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.5055 },
+      "rank": 7
+    },
+    {
+      "SNo": 15,
+      "RegNo": 125003109,
+      "Name": "I Sam Jackson",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "gpa": { "cgpa": 9.5055 },
+      "rank": 7
+    },
+    {
+      "SNo": 355,
+      "RegNo": 125156144,
+      "Name": "Venkata Lalitha Tejaswi Chirravuri",
+      "Branch": "B.Tech. Computer Science & Engineering (Artificial Intelligence & Data Science)",
+      "gpa": { "cgpa": 9.4945 },
+      "rank": 9
+    },
+    {
+      "RegNo": 125003487,
+      "Name": "Ajith Ravi",
+      "Branch": "B.Tech. Computer Science & Engineering",
+      "SNo": 120,
+      "gpa": { "cgpa": 9.4945 },
+      "rank": 9
+    }
+  ]
+  
