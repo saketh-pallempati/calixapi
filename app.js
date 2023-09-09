@@ -3,8 +3,8 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const request = require("request");
-const initialData = require("./ServerStaticData/initialFetch.json")
-const sem = require("./ServerStaticData/sem.json")
+const initialData = require("./ServerStaticData/initialFetch.json");
+const sem = require("./ServerStaticData/sem.json");
 app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
@@ -41,6 +41,12 @@ app.get("/api/getViews/:test_id", async (req, res) => {
   );
 });
 
+app.get("/branch", async (req, res) => {
+  let branch = req.query.branch;
+  branch = "B.Tech. " + branch;
+  let ans = await Branch(branch);
+  res.json(ans);
+});
 app.get("/initialData", async (req, res) => {
   // let output = await initialFetch().catch(console.dir);
   res.json(initialData);
@@ -49,6 +55,7 @@ app.get("/initialData", async (req, res) => {
 app.get("/sort", async (req, res) => {
   let semno = req.query.sem;
   // let output = await sortedOrder(sem).catch(console.dir);
+  students.find({});
   res.json(sem[semno]);
 });
 
@@ -68,25 +75,38 @@ async function run(sno) {
   return await students.findOne(filter);
 }
 
-// async function sortedOrder(sem) {
-//   if (sem == 0) {
-//     return students
-//       .find()
-//       .project({
-//         _id: 0,
-//         RegNo: 1,
-//         Name: 1,
-//         Branch: 1,
-//         gpa: 1,
-//         rank: 1,
-//         SNo: 1,
-//       })
-//       .sort({ rank: 1 })
-//       .limit(10)
-//       .toArray();
-//   }
+async function Branch(branch) {
+  try {
+    return await students
+      .find({ Branch: branch.toString() })
+      .project({
+        _id: 0,
+        RegNo: 1,
+        Name: 1,
+        Branch: 1,
+        gpa: 1,
+        rank: 1,
+        SNo: 1,
+      })
+      .sort({ rank: 1 })
+      .toArray();
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-
+// return students
+//   .find({ "Branch": branch })
+//   .project({
+//     _id: 0,
+//     RegNo: 1,
+//     Name: 1,
+//     Branch: 1,
+//     gpa: 1,
+//     rank: 1,
+//     SNo: 1,
+//   })
+//   .sort({ rank: 1 });
 //   const query = `{"gpa.${sem}" : -1}`;
 //   return students
 //     .find()

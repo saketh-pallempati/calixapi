@@ -1,23 +1,9 @@
-const fs = require('fs');
-
-function writeToFile(data, filename) {
-    fs.writeFile(filename, JSON.stringify(data), (err) => {
-        if (err) throw err;
-        console.log('Data written to file');
-    });
-}
-
-
-const sem0 = require("./ServerStaticData/sem4.json")
-function removeFields(arr) {
-    arr.forEach(function (obj) {
-        for (let key in obj.gpa) {
-            if (key !== '4') {
-                delete obj.gpa[key];
-            }
-        }
-    });
-    return arr;
-}
-const data = removeFields(sem0);
-writeToFile(data, 'output.json');
+const x = ['B.Tech. Computer Science & Business Systems',
+    'B.Tech. Computer Science & Engineering',
+    'B.Tech. Computer Science & Engineering (Artificial Intelligence & Data Science)',
+    'B.Tech. Computer Science & Engineering (Cyber Security & Blockchain Technology)',
+    'B.Tech. Computer Science & Engineering (IoT & Automation)',
+    'B.Tech. Information & Communication Technology',
+    'B.Tech. Information Technology']
+ans = x.map((i) => i.replace("B.Tech. ", ""))
+console.log(ans);
