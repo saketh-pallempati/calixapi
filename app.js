@@ -19,6 +19,9 @@ app.get("/initialData", async (req, res) => {
 
 app.get("/sort", async (req, res) => {
   let semno = req.query.sem;
+  if (semno == 0) {
+    semno == "cgpa";
+  }
   let output = await sortedOrder(semno).catch(console.dir);
   res.json(output);
 });
